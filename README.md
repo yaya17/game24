@@ -6,3 +6,8 @@ Game 24 is a card game in which the player(s) draw four random cards and try to 
 [Play Game](https://yaya17.github.io/game24/)
 
 Btw, you have to open the console to get all the results
+
+
+# to-do
+- [ ] show result in page (not console)
+- [ ] combine minor different results into one
