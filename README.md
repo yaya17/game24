@@ -10,4 +10,4 @@ Btw, you have to open the console to get all the results
 
 # to-do
 - [ ] show result in page (not console)
-- [ ] combine minor different results into one
+- [x] combine minor different results into one
