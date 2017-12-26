@@ -11,3 +11,7 @@ Btw, you have to open the console to get all the results
 # to-do
 - [ ] show result in page (not console)
 - [x] combine minor different results into one
+
+for example, below 2 have minor differences 
+* 1\*2\*3\*4 
+* (1\*2)\*3\*4
