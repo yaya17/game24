@@ -43,9 +43,7 @@ $("#btnCal").click(function () {
         )
         var a = r.map(e=>e.map(i=>ns[i]));
         console.log(a);
-        //for (i = 0; i < 24; i++) {
-        //    doThing(a[i])
-        //}
+
 
         a.forEach((e, i) =>a[i] = a[i].join());
         a = new Set(a);
