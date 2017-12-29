@@ -51,6 +51,9 @@ $("#btnCal").click(function () {
         b.forEach((e, i) =>b[i] = b[i].split(",")); b.forEach((e, i) =>b[i] = doThing(b[i]));
         c = new Set(c);
         console.log(c)
+        let d =  Array.from(c);
+        d.forEach((e, i) =>d[i] = d[i] + "<br/>");
+        $("#divAnswers").html(d)
     }
     go()
 })

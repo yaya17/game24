@@ -9,7 +9,7 @@ Btw, you have to open the console to get all the results
 
 
 # to-do
-- [ ] show result in page (not console)
+- [x] show result in page (not console)
 - [ ] use real card picture
 - [ ] game generates numbers for gamer (not ask for)
 - [ ] combine minor different results into one
