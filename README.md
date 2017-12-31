@@ -13,6 +13,14 @@ Btw, you have to open the console to get all the results
 - [ ] use real card picture
 - [ ] game generates numbers for gamer (not ask for)
 - [ ] combine minor different results into one
+- [ ] number pad for number input
+- [ ] enter key to show result, instead of button click
+- [ ] clear key
+- [ ] send a game (4 numbers) to a friend, ask for a result
+- [ ] use voice to input the numbers
+ 
+
+
 
 for example, below 2 have minor differences 
 * 1\*2\*3\*4 
