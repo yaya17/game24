@@ -4,7 +4,7 @@
 $("#btnCal").click(function () {
     var values = $("#inputValues").val()
     var go = function () {
-        var ns = values.split(",");
+        var ns = values.split(/[ ,]+/);
         console.log(ns);
         doThing(ns);
         var c;
@@ -57,3 +57,9 @@ $("#btnCal").click(function () {
     }
     go()
 })
+
+$("#btnGenerate").click(function () {
+   var values  = new Array(4).fill().map((i)=> Math.ceil(Math.random()*13)) 
+   
+   $("#inputValues").val(values.join(','));
+});
