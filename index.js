@@ -1,10 +1,22 @@
 ﻿/// <reference path="C:\Joyce\Compute24\Compute24\Scripts/jquery-3.2.1.js" />
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        go();
+    }
+});
 
-
-$("#btnCal").click(function () {
+var go = function () {
     var values = $("#inputValues").val()
-    var go = function () {
         var ns = values.split(/[ ,]+/);
+        if(ns.length != 4 ){
+            if(ns.length <= 3){
+                alert("Please enter more values (4 in total)")
+                return;
+            }
+            else{
+                ns=ns.splice(0,4);
+            }
+        }
         console.log(ns);
         doThing(ns);
         var c;
@@ -54,7 +66,9 @@ $("#btnCal").click(function () {
         let d =  Array.from(c);
         d.forEach((e, i) =>d[i] = d[i] + "<br/>");
         $("#divAnswers").html(d)
-    }
+ 
+}
+$("#btnCal").click(function () {
     go()
 })
 
@@ -69,7 +83,8 @@ $("#btnGenerate").click(function () {
 function displayCards(values){
     values.forEach((e,i)=>{
         var a = $("#divCards").html() || "";
-        a = a + '<img src="/cards/' + values[i] + '.jpg" height="200px" width="160px"></img>'
+        a = a + '<img src="cards/' + values[i] + '.jpg" height="200px" width="160px"></img>'
         $("#divCards").html(a);
-    }
-)}
+    })
+}
+
