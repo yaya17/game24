@@ -1,6 +1,7 @@
 ﻿/// <reference path="C:\Joyce\Compute24\Compute24\Scripts/jquery-3.2.1.js" />
 $(document).keypress(function(e) {
     if(e.which == 13) {
+        $("#divCards").html(" ");
         go();
     }
 });
@@ -69,7 +70,9 @@ var go = function () {
  
 }
 $("#btnCal").click(function () {
-    go()
+    $("#divCards").html(" ");
+    go();
+
 })
 
 $("#btnGenerate").click(function () {
