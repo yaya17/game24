@@ -60,6 +60,16 @@ $("#btnCal").click(function () {
 
 $("#btnGenerate").click(function () {
    var values  = new Array(4).fill().map((i)=> Math.ceil(Math.random()*13)) 
-   
    $("#inputValues").val(values.join(','));
+   
+   $("#divCards").html("")
+   displayCards(values);
 });
+
+function displayCards(values){
+    values.forEach((e,i)=>{
+        var a = $("#divCards").html() || "";
+        a = a + '<img src="/cards/' + values[i] + '.jpg" height="200px" width="160px"></img>'
+        $("#divCards").html(a);
+    }
+)}

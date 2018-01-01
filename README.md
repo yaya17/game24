@@ -10,8 +10,8 @@ Btw, you have to open the console to get all the results
 
 # to-do
 - [x] show result in page (not console)
-- [ ] use real card picture
-- [ ] game generates numbers for gamer (not ask for)
+- [x] use real card picture
+- [x] game generates numbers for gamer (not ask for)
 - [ ] combine minor different results into one
 - [ ] number pad for number input
 - [ ] enter key to show result, instead of button click
