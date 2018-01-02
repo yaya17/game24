@@ -6,6 +6,11 @@ $(document).keypress(function(e) {
     }
 });
 
+$("#inputValues").change(function(){
+    $("#divCards").html(" ")
+    displayCards($("#inputValues").val().split(/[ ,]+/));
+})
+
 var go = function () {
     var values = $("#inputValues").val()
         var ns = values.split(/[ ,]+/);
