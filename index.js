@@ -1,8 +1,9 @@
 ﻿/// <reference path="C:\Joyce\Compute24\Compute24\Scripts/jquery-3.2.1.js" />
+
 $(document).keypress(function(e) {
+
     if(e.which == 13) {
-        $("#divCards").html(" ");
-        go();
+        go("a");
     }
 });
 
@@ -12,7 +13,7 @@ $("#inputValues").change(function(){
     displayCards($("#inputValues").val().split(/[ ,]+/));
 })
 
-var go = function () {
+var go = function (z) {
     var values = $("#inputValues").val()
         var ns = values.split(/[ ,]+/);
         if(ns.length != 4 ){
@@ -70,22 +71,32 @@ var go = function () {
         b.forEach((e, i) =>b[i] = b[i].split(",")); b.forEach((e, i) =>b[i] = doThing(b[i]));
         c = new Set(c);
         console.log(c)
-        let d =  Array.from(c);
-        d.forEach((e, i) =>d[i] = d[i] + "<br/>");
-        $("#divAnswers").html(d)
+        if(z!=undefined){
+               let d =  Array.from(c);
+                d.forEach((e, i) =>d[i] = d[i] + "<br/>");
+                $("#divAnswers").html(d);
+        }
+        else{
+            if (c.size != 0) $("#divAnswers").html("There are possibilities")
+            else $("#divAnswers").html("It is impossible")
+        }
+ };
+
  
-}
+
 
 $("#btnCal").click(function () {
-    go();
+    go("a");
 })
 
 $("#btnGenerate").click(function () {
+
    var values  = new Array(4).fill().map((i)=> Math.ceil(Math.random()*13)) 
    $("#inputValues").val(values.join(','));
-   
+   $("#divAnswers").html(" ")
    $("#divCards").html("")
    displayCards(values);
+   go()
 });
 
 function displayCards(values){
