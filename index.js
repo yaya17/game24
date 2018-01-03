@@ -7,7 +7,8 @@ $(document).keypress(function(e) {
 });
 
 $("#inputValues").change(function(){
-    $("#divCards").html(" ")
+    $("#divCards").html(" ");
+    $("#divAnswers").html(" ");
     displayCards($("#inputValues").val().split(/[ ,]+/));
 })
 
@@ -74,10 +75,9 @@ var go = function () {
         $("#divAnswers").html(d)
  
 }
-$("#btnCal").click(function () {
-    $("#divCards").html(" ");
-    go();
 
+$("#btnCal").click(function () {
+    go();
 })
 
 $("#btnGenerate").click(function () {
@@ -91,7 +91,7 @@ $("#btnGenerate").click(function () {
 function displayCards(values){
     values.forEach((e,i)=>{
         var a = $("#divCards").html() || "";
-        a = a + '<img src="cards/' + values[i] + '.jpg" height="200px" width="160px"></img>'
+        a = a + '<img src="cards/' + values[i] + '.jpg" height="100px" width="80px"></img>'
         $("#divCards").html(a);
     })
 }
