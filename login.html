@@ -1,0 +1,47 @@
+<html><head></head>
+<body>
+<h2>Login</h2>
+
+<button onclick="login()">Google Login</button>
+
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCTkLo8YEWP6pza2z44lZ417dp5YJD7v3I",
+        authDomain: "game24project.firebaseapp.com",
+        databaseURL: "https://game24project.firebaseio.com",
+        projectId: "game24project",
+        storageBucket: "game24project.appspot.com",
+        messagingSenderId: "767141719374"
+    };
+    var game24 = firebase.initializeApp(config);
+
+    var provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+    var user ;
+function login() {
+    firebase.auth().signInWithPopup(provider).then(
+        function(result) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            user = result.user;
+            debugger
+            //console.log(user.displayName);
+            alert(user.displayName);
+            // ...
+        }).catch(function(error) {
+            debugger
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            // ...
+        });
+    };
+ </script>
+</body></html>
