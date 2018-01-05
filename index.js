@@ -1,10 +1,30 @@
 ﻿/// <reference path="C:\Joyce\Compute24\Compute24\Scripts/jquery-3.2.1.js" />
 
+$(document).keypress(function(e) {
 
-$("#btnCal").click(function () {
+    if(e.which == 13) {
+        go("a");
+    }
+});
+
+$("#inputValues").change(function(){
+    $("#divCards").html(" ");
+    $("#divAnswers").html(" ");
+    displayCards($("#inputValues").val().split(/[ ,]+/));
+})
+
+var go = function (z) {
     var values = $("#inputValues").val()
-    var go = function () {
         var ns = values.split(/[ ,]+/);
+        if(ns.length != 4 ){
+            if(ns.length <= 3){
+                alert("Please enter more values (4 in total)")
+                return;
+            }
+            else{
+                ns=ns.splice(0,4);
+            }
+        }
         console.log(ns);
         doThing(ns);
         var c;
@@ -51,15 +71,39 @@ $("#btnCal").click(function () {
         b.forEach((e, i) =>b[i] = b[i].split(",")); b.forEach((e, i) =>b[i] = doThing(b[i]));
         c = new Set(c);
         console.log(c)
-        let d =  Array.from(c);
-        d.forEach((e, i) =>d[i] = d[i] + "<br/>");
-        $("#divAnswers").html(d)
-    }
-    go()
+        if(z!=undefined){
+               let d =  Array.from(c);
+                d.forEach((e, i) =>d[i] = d[i] + "<br/>");
+                $("#divAnswers").html(d);
+        }
+        else{
+            if (c.size != 0) $("#divAnswers").html("There are possibilities")
+            else $("#divAnswers").html("It is impossible")
+        }
+ };
+
+ 
+
+
+$("#btnCal").click(function () {
+    go("a");
 })
 
 $("#btnGenerate").click(function () {
+
    var values  = new Array(4).fill().map((i)=> Math.ceil(Math.random()*13)) 
-   
    $("#inputValues").val(values.join(','));
+   $("#divAnswers").html(" ")
+   $("#divCards").html("")
+   displayCards(values);
+   go()
 });
+
+function displayCards(values){
+    values.forEach((e,i)=>{
+        var a = $("#divCards").html() || "";
+        a = a + '<img src="cards/' + values[i] + '.jpg" height="100px" width="80px"></img>'
+        $("#divCards").html(a);
+    })
+}
+
