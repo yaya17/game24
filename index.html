@@ -7,7 +7,7 @@
 
 </head>
 <body>  
-<br /> 
+<div> <button id='btnGOTD' style="float:right">GOTD</button> </div>
     <p>Please enter your 4 numbers </p>
     <p>Or <button id="btnGenerate"> Auto Generate Numbers</button> </p>
     <input id="inputValues" title="1,2,3,4 or 1 2 3 4" placeholder="Ex:1,2,3,4"  /></input>
@@ -16,9 +16,15 @@
     <p><button id="btnCal">Get Answer(s)</button></p>
 
     <div id="divAnswers"></div>
+
+    <button id="btnSaveGOTD">Save GOTD</button>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   
     <script src="index.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script src="gameoftheday.js"></script>
  
 </body>
 </html>

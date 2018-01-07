@@ -3,6 +3,8 @@
 <h2>Login</h2>
 
 <button onclick="login()">Google Login</button>
+<button onclick="read()">Read FB</button>
+
 
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 <script>
@@ -16,11 +18,33 @@
         messagingSenderId: "767141719374"
     };
     var game24 = firebase.initializeApp(config);
+    var root = game24.database().ref();
+//    var userId = firebase.auth().currentUser.uid;
+
+
+    var gameOfTheDay;
+    game24.database().ref('gameoftheday').on('value', function(snapshot) {
+        gameOfTheDay =snapshot.val();
+        console.log(JSON.stringify(gameOfTheDay));
+    });
+
+    // game24.database().ref('players').on('value', function(snapshot) {
+    //     console.log(JSON.stringify(snapshot.val()));
+    // });
+
+    // root.once('value')
+    //     .then(function(snapshot) {
+    //         var r=snapshot.val();
+    //         console.log(JSON.stringify(r));
+    // });
+
+    // var url = "https://game24project.firebaseio.com/";
+    // root.once('value',(v)=>console.log(v));
 
     var provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     var user ;
-function login() {
+    function login() {
     firebase.auth().signInWithPopup(provider).then(
         function(result) {
             // This gives you a Google Access Token. You can use it to access the Google API.
