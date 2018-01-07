@@ -10,12 +10,10 @@ var config = {
 };
 var game24 = firebase.initializeApp(config);
 
-
 var gameoftheday;
 game24.database().ref('gameoftheday').on('value', function(snapshot) {
     gameoftheday = snapshot.val();
     $('#btnGOTD').show().css('color','blue');
-    //console.log(JSON.stringify(gameoftheday));
 });
 
 $('#btnGOTD').click(function(e){
